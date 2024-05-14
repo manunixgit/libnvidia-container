@@ -1,0 +1,9 @@
+config BR2_PACKAGE_LIBNVIDIA_CONTAINER
+    bool "libnvidia-container"
+    depends on BR2_TOOLCHAIN_HAS_THREADS # Ensure toolchain supports threading
+    select BR2_PACKAGE_LIBSECCOMP       # libseccomp dependency
+    help
+      NVIDIA's library for integration with the NVIDIA container runtime.
+
+comment "libnvidia-container needs a toolchain w/ threads"
+    depends on !BR2_TOOLCHAIN_HAS_THREADS
